@@ -1,0 +1,20 @@
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+button{
+    width: 300px;
+    height: 70px;
+}
+
+#innGame, #showAnswer{
+    border: 1px solid gray;
+    box-shadow: 1px 1px black;
+    width: 500px;
+    height: 300px;
+    padding: 20px;
+}

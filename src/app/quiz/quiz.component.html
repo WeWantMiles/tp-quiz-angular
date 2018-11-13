@@ -1,0 +1,24 @@
+<div id="container">
+  <div id="showButtonNewGame" *ngIf="!currentQuestion">
+    <button mat-raised-button color="primary" (click)="newGame()">New Game</button>
+  </div>
+  <div id="innGame" *ngIf="currentQuestion && !answer">
+    <p>Quelle est la capitale de {{questions[iQuestion].pays}} ?</p>
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile *ngFor="let p of currentQuestion.propositions"><button mat-raised-button color="warn" (click)="answerGiven(p)">{{p}}<br/></button></mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div id="showAnswer" *ngIf="answer">
+    <p *ngIf="found; else wrong">Bien joué</p>
+    <ng-template #wrong>Dommage</ng-template>
+    <p>La réponse est {{answer}}</p>
+
+    <div id="nextStep">
+      <button mat-raised-button color="warn" *ngIf="hasNext; else end" (click)="loadNextQuestion()">Questions suivante</button>
+      <ng-template #end> <button mat-raised-button color="warn" (click)="redirect()">Voir score</button></ng-template>
+
+    </div>
+  </div>
+</div>
